@@ -19,7 +19,7 @@ namespace FlowerMail
             ShowParcels();
             GetId();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\Documents\PocztaKwiatowaBD.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\source\repos\FlowerMail\FlowerMail\PocztaKwiatowaBD.mdf;Integrated Security=True");
         private void ShowParcels()
         {
             Con.Open();
@@ -175,6 +175,15 @@ namespace FlowerMail
                 Key = Convert.ToInt32(pokaz_przesylki.SelectedRows[0].Cells[0].Value.ToString());
             }
         }
+        private void Reset()
+        {
+            data_nadania.Text = "";
+            imie_wys.Text = "";
+            imie_odb.Text = "";
+            adres.Text = "";
+            tel_wys.Text = "";
+            tel_odb.Text = "";
+        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -186,6 +195,34 @@ namespace FlowerMail
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Usun_Click(object sender, EventArgs e)
+        {
+            if (Key == 0)
+            {
+                MessageBox.Show("Wybierz przesyłkę");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("delete from przesylki where id_przesylki=@KKey", Con);
+                    cmd.Parameters.AddWithValue("@KKey", Key);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Dane klienta usunięte");
+                    Con.Close();
+                    ShowParcels();
+                    Reset();
+                }
+                catch (Exception Ex)
+                {
+
+                    MessageBox.Show(Ex.Message);
+                }
+            }
         }
     }
 }

@@ -53,7 +53,7 @@ namespace FlowerMail
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
         }
-        SqlConnection Conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\Documents\PocztaKwiatowaBD.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\source\repos\FlowerMail\FlowerMail\PocztaKwiatowaBD.mdf;Integrated Security=True");
         private void ShowWorkers()
         {
             Conn.Open();
@@ -212,8 +212,8 @@ namespace FlowerMail
         {
             imie_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[1].Value.ToString();
             data_ur.Value = Convert.ToDateTime(pokaz_pracownikow.SelectedRows[0].Cells[2].Value.ToString());
-            tel_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[3].Value.ToString();
-            adres_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[4].Value.ToString();
+            adres_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[3].Value.ToString();
+            tel_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[4].Value.ToString();
             plec_prac.SelectedItem = pokaz_pracownikow.SelectedRows[0].Cells[5].Value.ToString();
             haslo_prac.Text = pokaz_pracownikow.SelectedRows[0].Cells[6].Value.ToString();
             if (imie_prac.Text == "")

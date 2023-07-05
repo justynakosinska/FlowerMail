@@ -20,7 +20,7 @@ namespace FlowerMail
             GetId();
             GetParcel();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\Documents\PocztaKwiatowaBD.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Justyna\source\repos\FlowerMail\FlowerMail\PocztaKwiatowaBD.mdf;Integrated Security=True");
         private void ShowDelivery()
         {
             Con.Open();

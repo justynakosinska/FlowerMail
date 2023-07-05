@@ -153,6 +153,7 @@
             Usun.Size = new Size(164, 35);
             Usun.TabIndex = 2;
             Usun.TextAlign = ContentAlignment.MiddleCenter;
+            Usun.Click += Usun_Click;
             // 
             // Edytuj
             // 
